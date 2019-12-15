@@ -1,20 +1,11 @@
 package gregicadditions;
 
-import java.util.function.Function;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import gregicadditions.bees.CommonProxy;
 import gregicadditions.bees.GTBees;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
-import gregicadditions.recipes.GAMachineRecipeRemoval;
-import gregicadditions.recipes.GARecipeAddition;
-import gregicadditions.recipes.GeneratorFuels;
-import gregicadditions.recipes.MachineCraftingRecipes;
-import gregicadditions.recipes.MatterReplication;
+import gregicadditions.recipes.*;
 import gregicadditions.tconstruct.TinkersMaterials;
 import gregtech.common.blocks.VariantItemBlock;
 import net.minecraft.block.Block;
@@ -33,6 +24,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.function.Function;
 
 @Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.8.6.437,);after:forestry;after:tconstruct")
 public class GregicAdditions {
@@ -75,6 +70,7 @@ public class GregicAdditions {
 		IForgeRegistry<Block> registry = event.getRegistry();
 		registry.register(GAMetaBlocks.MUTLIBLOCK_CASING);
 		registry.register(GAMetaBlocks.TRANSPARENT_CASING);
+		registry.register(GAMetaBlocks.METAL_CASING);
 	}
 
 	@SubscribeEvent
@@ -82,6 +78,7 @@ public class GregicAdditions {
 		IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(createItemBlock(GAMetaBlocks.MUTLIBLOCK_CASING, VariantItemBlock::new));
 		registry.register(createItemBlock(GAMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
+		registry.register(createItemBlock(GAMetaBlocks.METAL_CASING, VariantItemBlock::new));
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)

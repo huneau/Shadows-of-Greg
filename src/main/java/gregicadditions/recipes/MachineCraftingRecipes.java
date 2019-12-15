@@ -1,35 +1,5 @@
 package gregicadditions.recipes;
 
-import static gregicadditions.recipes.GACraftingComponents.BETTER_CIRCUIT;
-import static gregicadditions.recipes.GACraftingComponents.CABLE;
-import static gregicadditions.recipes.GACraftingComponents.CABLE_QUAD;
-import static gregicadditions.recipes.GACraftingComponents.CIRCUIT;
-import static gregicadditions.recipes.GACraftingComponents.COIL_ELECTRIC;
-import static gregicadditions.recipes.GACraftingComponents.COIL_HEATING;
-import static gregicadditions.recipes.GACraftingComponents.COIL_HEATING_DOUBLE;
-import static gregicadditions.recipes.GACraftingComponents.CONVEYOR;
-import static gregicadditions.recipes.GACraftingComponents.DIAMOND;
-import static gregicadditions.recipes.GACraftingComponents.EMITTER;
-import static gregicadditions.recipes.GACraftingComponents.FIELD_GENERATOR;
-import static gregicadditions.recipes.GACraftingComponents.GLASS;
-import static gregicadditions.recipes.GACraftingComponents.GRINDER;
-import static gregicadditions.recipes.GACraftingComponents.HULL;
-import static gregicadditions.recipes.GACraftingComponents.MOTOR;
-import static gregicadditions.recipes.GACraftingComponents.PIPE;
-import static gregicadditions.recipes.GACraftingComponents.PISTON;
-import static gregicadditions.recipes.GACraftingComponents.PLATE;
-import static gregicadditions.recipes.GACraftingComponents.PUMP;
-import static gregicadditions.recipes.GACraftingComponents.ROBOT_ARM;
-import static gregicadditions.recipes.GACraftingComponents.ROTOR;
-import static gregicadditions.recipes.GACraftingComponents.STICK_DISTILLATION;
-import static gregicadditions.recipes.GACraftingComponents.STICK_ELECTROMAGNETIC;
-import static gregicadditions.recipes.GACraftingComponents.STICK_RADIOACTIVE;
-import static gregicadditions.recipes.GACraftingComponents.WIRE;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import gregicadditions.GAConfig;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
@@ -56,6 +26,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static gregicadditions.machines.GATileEntities.THERMAL_CENTRIFUGE;
+import static gregicadditions.recipes.GACraftingComponents.*;
 
 public class MachineCraftingRecipes {
 
@@ -216,6 +193,7 @@ public class MachineCraftingRecipes {
 		ModHandler.addShapedRecipe("ga_large_tungstensteel_boiler", MetaTileEntities.LARGE_TUNGSTENSTEEL_BOILER.getStackForm(), "PSP", "SAS", "PSP", 'P', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Aluminium), 'S', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Master), 'A', MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.TUNGSTENSTEEL_ROBUST));
 		ModHandler.addShapedRecipe("ga_assline", GATileEntities.ASSEMBLY_LINE.getStackForm(), "CRC", "SAS", "CRC", 'A', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'R', MetaItems.ROBOT_ARM_IV, 'C', MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING), 'S', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite));
 		ModHandler.addShapedRecipe("ga_processing_array", GATileEntities.PROCESSING_ARRAY.getStackForm(), "CBC", "RHR", "CDC", 'H', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'R', MetaItems.ROBOT_ARM_IV, 'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite), 'B', MetaItems.ENERGY_LAPOTRONIC_ORB, 'D', MetaItems.TOOL_DATA_ORB);
+		ModHandler.addShapedRecipe("ga_large_thermal_centrifuge", GATileEntities.LARGE_THERMAL_CENTRIFUGE.getStackForm(), "CBC", "RHR", "CDC", 'H', THERMAL_CENTRIFUGE[4].getStackForm(), 'R', new UnificationEntry(OrePrefix.stick, Materials.RedSteel), 'B', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Extreme), 'C', new UnificationEntry(OrePrefix.plate, Materials.RedSteel), 'D', new UnificationEntry(OrePrefix.gear, Materials.RedSteel));
 		List<Recipe> removals = new ArrayList<>();
 
 		for (Recipe r : RecipeMaps.ASSEMBLER_RECIPES.getRecipeList()) {
@@ -330,7 +308,7 @@ public class MachineCraftingRecipes {
 		if (GAConfig.GT5U.highTierWiremills) registerMachineRecipe(GATileEntities.WIREMILL, "EWE", "CMC", "EWE", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE);
 		if (GAConfig.GT5U.highTierCentrifuges) registerMachineRecipe(GATileEntities.CENTRIFUGE, "CEC", "WMW", "CEC", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE);
 		if (GAConfig.GT5U.highTierElectrolyzers) registerMachineRecipe(GATileEntities.ELECTROLYZER, "IGI", "IMI", "CWC", 'M', HULL, 'C', CIRCUIT, 'W', CABLE, 'I', WIRE, 'G', GLASS);
-		if (GAConfig.GT5U.highTierThermalCentrifuges) registerMachineRecipe(GATileEntities.THERMAL_CENTRIFUGE, "CEC", "OMO", "WEW", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'O', COIL_HEATING_DOUBLE);
+		if (GAConfig.GT5U.highTierThermalCentrifuges) registerMachineRecipe(THERMAL_CENTRIFUGE, "CEC", "OMO", "WEW", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'O', COIL_HEATING_DOUBLE);
 		if (GAConfig.GT5U.highTierOreWashers) registerMachineRecipe(GATileEntities.ORE_WASHER, "RGR", "CEC", "WMW", 'M', HULL, 'R', ROTOR, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
 		if (GAConfig.GT5U.highTierPackers) registerMachineRecipe(GATileEntities.PACKER, "BCB", "RMV", "WCW", 'M', HULL, 'R', ROBOT_ARM, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'B', OreDictNames.chestWood);
 		if (GAConfig.GT5U.highTierUnpackers) registerMachineRecipe(GATileEntities.UNPACKER, "BCB", "VMR", "WCW", 'M', HULL, 'R', ROBOT_ARM, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'B', OreDictNames.chestWood);

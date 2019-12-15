@@ -17,10 +17,10 @@ import net.minecraft.util.EnumFacing;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiThermalCentrifugeInfo extends MultiblockInfoPage {
+public class LargeThermalCentrifugeInfo extends MultiblockInfoPage {
     @Override
     public MultiblockControllerBase getController() {
-        return GATileEntities.MULTI_THERMAL_CENTRIFUGE;
+        return GATileEntities.LARGE_THERMAL_CENTRIFUGE;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class MultiThermalCentrifugeInfo extends MultiblockInfoPage {
                     .aisle("XXX", "CCC", "XXX")
                     .aisle("IXX", "C#C", "X#X")
                     .aisle("OXX", "CSC", "XXX")
-                    .where('S', GATileEntities.MULTI_THERMAL_CENTRIFUGE, EnumFacing.SOUTH)
+                    .where('S', GATileEntities.LARGE_THERMAL_CENTRIFUGE, EnumFacing.SOUTH)
                     .where('C', MetaBlocks.WIRE_COIL.getState(coilType))
                     .where('X', MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN))
                     .where('#', Blocks.AIR.getDefaultState())
@@ -45,6 +45,6 @@ public class MultiThermalCentrifugeInfo extends MultiblockInfoPage {
 
     @Override
     public String[] getDescription() {
-        return new String[]{I18n.format("gregtech.multiblock.multi_thermal_centrifuge.description")};
+        return new String[]{I18n.format("gregtech.multiblock.large_thermal_centrifuge.description")};
     }
 }

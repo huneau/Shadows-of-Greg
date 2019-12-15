@@ -17,6 +17,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class ClientHandler {
 
 	public static SimpleCubeRenderer COKE_OVEN_BRICKS = new SimpleCubeRenderer("casings/solid/machine_coke_oven_bricks");
+	public static SimpleCubeRenderer RED_STEEL_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_red_steel");
 	public static SimpleCubeRenderer FUSION_TEXTURE = new SimpleCubeRenderer("casings/fusion/machine_casing_fusion_glass");
 	public static SimpleCubeRenderer ACTIVE_FUSION_TEXTURE = new SimpleCubeRenderer("gregtech:casings/fusion/machine_casing_fusion_glass_yellow");
 	public static OrientedOverlayRenderer COKE_OVEN_OVERLAY = new OrientedOverlayRenderer("machines/coke_oven", new OverlayFace[] { OverlayFace.FRONT });

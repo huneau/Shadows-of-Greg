@@ -46,6 +46,7 @@ public class GAMaterials implements IMaterialHandler {
 		Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
 		Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 		Materials.Tritanium.addFlag(MatFlags.GENERATE_FRAME);
+		Materials.RedSteel.addFlag(MatFlags.GENERATE_FRAME | MatFlags.GENERATE_GEAR);
 
 		Materials.Apatite.addFlag(SolidMaterial.MatFlags.GENERATE_ROD);
 

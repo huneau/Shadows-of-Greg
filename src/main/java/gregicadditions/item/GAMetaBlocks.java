@@ -1,10 +1,6 @@
 package gregicadditions.item;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
+import gregicadditions.blocks.GAMetalCasing;
 import gregtech.api.unification.material.Materials;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.pipelike.fluidpipe.FluidPipeProperties;
@@ -17,11 +13,18 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class GAMetaBlocks {
 
 	public static GAMultiblockCasing MUTLIBLOCK_CASING;
 
 	public static GATransparentCasing TRANSPARENT_CASING;
+
+	public static GAMetalCasing METAL_CASING;
 
 	public static void init() {
 		MUTLIBLOCK_CASING = new GAMultiblockCasing();
@@ -29,6 +32,9 @@ public class GAMetaBlocks {
 
 		TRANSPARENT_CASING = new GATransparentCasing();
 		TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
+
+		METAL_CASING = new GAMetalCasing();
+		METAL_CASING.setRegistryName("ga_metal_casing");
 
 		MetaBlocks.FLUID_PIPE.addPipeMaterial(Materials.Ultimet, new FluidPipeProperties(1500, 12000, true));
 		//MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
@@ -38,6 +44,7 @@ public class GAMetaBlocks {
 	public static void registerItemModels() {
 		registerItemModel(MUTLIBLOCK_CASING);
 		registerItemModel(TRANSPARENT_CASING);
+		registerItemModel(METAL_CASING);
 	}
 
 	@SideOnly(Side.CLIENT)

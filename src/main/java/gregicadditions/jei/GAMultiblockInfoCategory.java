@@ -26,7 +26,7 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
                 new MultiblockInfoRecipeWrapper(new FusionReactor2Info()),
                 new MultiblockInfoRecipeWrapper(new FusionReactor3Info()),
                 new MultiblockInfoRecipeWrapper(new ProcessingArrayInfo()),
-                new MultiblockInfoRecipeWrapper(new MultiThermalCentrifugeInfo())
+                new MultiblockInfoRecipeWrapper(new LargeThermalCentrifugeInfo())
         ), "gtadditions:multiblock_info");
     }
 
