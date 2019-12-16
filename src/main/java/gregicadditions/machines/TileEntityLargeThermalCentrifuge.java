@@ -86,18 +86,18 @@ public class TileEntityLargeThermalCentrifuge extends RecipeMapMultiblockControl
 
         @Override
         protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
+            Recipe matchingRecipe = recipeMap.findRecipe(maxVoltage, inputs, fluidInputs, 0);
+            if (matchingRecipe == null) {
+                return null;
+            }
+
             int maxItemsLimit = 8;
             int EUt = 0;
             int duration = 0;
             int currentTier = getOverclockingTier(maxVoltage);
             int tierNeeded;
-
             int minMultiplier = Integer.MAX_VALUE;
 
-            Recipe matchingRecipe = recipeMap.findRecipe(maxVoltage, inputs, fluidInputs, 0);
-            if (matchingRecipe == null) {
-                return null;
-            }
             tierNeeded = Math.max(1, getOverclockingTier(matchingRecipe.getEUt()));
             maxItemsLimit *= currentTier - tierNeeded;
 
@@ -193,6 +193,33 @@ public class TileEntityLargeThermalCentrifuge extends RecipeMapMultiblockControl
                 FluidStack fluidCopy = f.copy();
                 fluidCopy.amount = fluidNum;
                 outputF.add(fluidCopy);
+            }
+        }
+
+        @Override
+        protected void trySearchNewRecipe() {
+            long maxVoltage = getMaxVoltage();
+            Recipe currentRecipe = null;
+            IItemHandlerModifiable importInventory = getInputInventory();
+            IMultipleTankHandler importFluids = getInputTank();
+            boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
+            //inverse of logic in normal AbstractRecipeLogic
+            //for MultiSmelter, we can reuse previous recipe if inputs didn't change
+            //otherwise, we need to recompute it for new ingredients
+            //but technically, it means we can cache multi smelter recipe, but changing inputs have more priority
+            if(dirty || forceRecipeRecheck) {
+                this.forceRecipeRecheck = false;
+                //else, try searching new recipe for given inputs
+                currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
+                if (currentRecipe != null) {
+                    this.previousRecipe = currentRecipe;
+                }
+            } else if (previousRecipe != null && previousRecipe.matches(false, importInventory, importFluids)) {
+                //if previous recipe still matches inputs, try to use it
+                currentRecipe = previousRecipe;
+            }
+            if (currentRecipe != null && setupAndConsumeRecipeInputs(currentRecipe)) {
+                setupRecipe(currentRecipe);
             }
         }
     }
