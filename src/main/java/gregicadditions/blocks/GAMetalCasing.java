@@ -28,7 +28,15 @@ public class GAMetalCasing extends VariantBlock<GAMetalCasing.MetalCasingType> {
 
 	public enum MetalCasingType implements IStringSerializable {
 
-		RED_STEEL_CASING("red_steel");
+		RED_STEEL_CASING("red_steel"),
+		TUMBAGA("tumbaga"),
+		POTIN("potin"),
+		STELLITE_TALONITE("stellite_talonite"),
+		STABALLOY("staballoy"),
+		EGLIN_STEEL("eglin_steel"),
+		GRISIUM("grisium"),
+		MARAGING_STEEL("maraging_steel"),
+		INCONEL("inconel");
 
 		private final String name;
 

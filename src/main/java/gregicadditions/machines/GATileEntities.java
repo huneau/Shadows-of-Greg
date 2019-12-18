@@ -3,6 +3,7 @@ package gregicadditions.machines;
 import gregicadditions.GAConfig;
 import gregicadditions.GregicAdditions;
 import gregicadditions.client.ClientHandler;
+import gregicadditions.machines.multi.simple.*;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
@@ -62,6 +63,18 @@ public class GATileEntities {
 	public static TileEntityAssemblyLine ASSEMBLY_LINE;
 	public static TileEntityProcessingArray PROCESSING_ARRAY;
 	public static TileEntityLargeThermalCentrifuge LARGE_THERMAL_CENTRIFUGE;
+	public static TileEntityLargeElectrolyzer LARGE_ELECTROLYZER;
+	public static TileEntityLargeCentrifuge LARGE_CENTRIFUGE;
+	public static TileEntityLargeCutting LARGE_CUTTING;
+	public static TileEntityLargeMacerator LARGE_MACERATOR;
+	public static TileEntityLargeMixer LARGE_MIXER;
+	public static TileEntityLargeMultiUse LARGE_MULTI_USE;
+	public static TileEntityLargeBenderAndForming LARGE_BENDER_AND_FORMING;
+	public static TileEntityLargeSifter LARGE_SIFTER;
+	public static TileEntityLargeWashingPlant LARGE_WASHING_PLANT;
+	public static TileEntityLargeWiremill LARGE_WIREMILL;
+	public static TileEntityLargeChemicalReactor LARGE_CHEMICAL_REACTOR;
+	public static TileEntityLargeExtruder LARGE_EXTRUDER;
 
 	public static TileEntityDrum WOODEN_DRUM;
 	public static TileEntityDrum BRONZE_DRUM;
@@ -391,6 +404,30 @@ public class GATileEntities {
 
 		PROCESSING_ARRAY = GregTechAPI.registerMetaTileEntity(2507, new TileEntityProcessingArray(location("processing_array")));
 		LARGE_THERMAL_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2508, new TileEntityLargeThermalCentrifuge(location("large_thermal_centrifuge")));
+		LARGE_ELECTROLYZER = GregTechAPI.registerMetaTileEntity(2509, new TileEntityLargeElectrolyzer(location("large_electrolyzer")));
+		//register 2 times for each recipe seems not working
+		LARGE_BENDER_AND_FORMING = GregTechAPI.registerMetaTileEntity(2510, new TileEntityLargeBenderAndForming(location("large_bender_and_forming"), RecipeMaps.BENDER_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2511, new TileEntityLargeBenderAndForming(location("large_bender_and_forming"), RecipeMaps.FORMING_PRESS_RECIPES));
+		LARGE_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2512, new TileEntityLargeCentrifuge(location("large_centrifuge")));
+		LARGE_CUTTING = GregTechAPI.registerMetaTileEntity(2513, new TileEntityLargeCutting(location("large_cutting")));
+		LARGE_MACERATOR = GregTechAPI.registerMetaTileEntity(2514, new TileEntityLargeMacerator(location("large_macerator")));
+		LARGE_MIXER = GregTechAPI.registerMetaTileEntity(2515, new TileEntityLargeMixer(location("large_mixer")));
+		LARGE_MULTI_USE = GregTechAPI.registerMetaTileEntity(2516, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.COMPRESSOR_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2517, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.COMPRESSOR_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2518, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.LATHE_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2519, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.POLARIZER_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2520, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.FERMENTING_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2521, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.FLUID_EXTRACTION_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2522, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.EXTRACTOR_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2523, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.LASER_ENGRAVER_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2524, new TileEntityLargeMultiUse(location("large_multi_use"), RecipeMaps.AUTOCLAVE_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2525, new TileEntityLargeMultiUse(location("large_multi_use"), GARecipeMaps.REPLICATOR_RECIPES));
+		LARGE_SIFTER = GregTechAPI.registerMetaTileEntity(2526, new TileEntityLargeSifter(location("large_sifter")));
+		LARGE_WASHING_PLANT = GregTechAPI.registerMetaTileEntity(2527, new TileEntityLargeWashingPlant(location("large_washing_plant"), RecipeMaps.ORE_WASHER_RECIPES));
+		GregTechAPI.registerMetaTileEntity(2528, new TileEntityLargeWashingPlant(location("large_washing_plant"), RecipeMaps.CHEMICAL_BATH_RECIPES));
+		LARGE_WIREMILL = GregTechAPI.registerMetaTileEntity(2529, new TileEntityLargeWiremill(location("large_wiremill")));
+		LARGE_CHEMICAL_REACTOR = GregTechAPI.registerMetaTileEntity(2530, new TileEntityLargeChemicalReactor(location("large_chemical_reactor")));
+		LARGE_EXTRUDER = GregTechAPI.registerMetaTileEntity(2530, new TileEntityLargeExtruder(location("large_extruder")));
 
 		if (GAConfig.GT6.registerDums) {
 			WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));

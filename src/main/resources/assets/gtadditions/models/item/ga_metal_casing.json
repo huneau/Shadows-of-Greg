@@ -12,6 +12,46 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_red_steel"
         }
+      },
+      "potin": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_potin"
+        }
+      },
+      "tumbaga": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_tumbaga"
+        }
+      },
+      "stellite_talonite": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_stellite_talonite"
+        }
+      },
+      "staballoy": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_staballoy"
+        }
+      },
+      "eglin_steel": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_eglin_steel"
+        }
+      },
+      "grisium": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_grisium"
+        }
+      },
+      "maraging_steel": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_maraging_steel"
+        }
+      },
+      "inconel": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_inconel"
+        }
       }
     }
   }
