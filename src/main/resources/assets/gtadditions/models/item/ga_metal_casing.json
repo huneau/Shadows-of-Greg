@@ -52,6 +52,11 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_inconel"
         }
+      },
+      "hastelloy_n": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_hastelloy_n"
+        }
       }
     }
   }

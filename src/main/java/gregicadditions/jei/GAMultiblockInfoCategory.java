@@ -2,6 +2,7 @@ package gregicadditions.jei;
 
 import com.google.common.collect.Lists;
 
+import gregicadditions.jei.multi.advance.VolcanusInfo;
 import gregicadditions.jei.multi.simple.*;
 import gregtech.integration.jei.multiblock.MultiblockInfoRecipeWrapper;
 import mezz.jei.api.IJeiHelpers;
@@ -38,6 +39,7 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
 				new MultiblockInfoRecipeWrapper(new LargeWiremillInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeChemicalReactorInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeExtruderInfo()),
+				new MultiblockInfoRecipeWrapper(new VolcanusInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeBenderAndFormingInfo())
 		), "gtadditions:multiblock_info");
 	}

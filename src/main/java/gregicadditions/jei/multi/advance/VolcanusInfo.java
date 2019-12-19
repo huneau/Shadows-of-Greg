@@ -1,6 +1,5 @@
-package gregicadditions.jei.multi.simple;
+package gregicadditions.jei.multi.advance;
 
-import com.google.common.collect.Lists;
 import gregicadditions.blocks.GAMetalCasing;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.machines.GATileEntities;
@@ -19,10 +18,11 @@ import net.minecraft.util.EnumFacing;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LargeMixerInfo extends MultiblockInfoPage {
+public class VolcanusInfo extends MultiblockInfoPage {
+
 	@Override
 	public MultiblockControllerBase getController() {
-		return GATileEntities.LARGE_MIXER;
+		return GATileEntities.VOLCANUS;
 	}
 
 	@Override
@@ -30,24 +30,29 @@ public class LargeMixerInfo extends MultiblockInfoPage {
 		ArrayList<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
 		for (BlockWireCoil.CoilType coilType : BlockWireCoil.CoilType.values()) {
 			shapeInfo.add(MultiblockShapeInfo.builder()
-					.aisle("XXX", "XXX", "XXX")
-					.aisle("XXX", "XYX", "XXX")
-					.aisle("XXX", "XYX", "XXX")
-					.aisle("OXX", "XSX", "XXX")
-					.where('S', GATileEntities.LARGE_MIXER, EnumFacing.SOUTH)
-					.where('X', GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.STABALLOY))
-					.where('Y', MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TUNGSTENSTEEL_ROBUST))
-					.where('#', Blocks.AIR.getDefaultState())
+					.aisle("IFX", "CCC", "CCC", "XXX")
+					.aisle("SXE", "C#C", "C#C", "XXX")
+					.aisle("ODX", "CCC", "CCC", "XXX")
+					.where('X', GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.HASTELLOY_N))
+					.where('C', MetaBlocks.WIRE_COIL.getState(coilType))
+					.where('S', GATileEntities.VOLCANUS, EnumFacing.WEST)
+
+					.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.MV], EnumFacing.EAST)
 					.where('I', MetaTileEntities.ITEM_IMPORT_BUS[GTValues.LV], EnumFacing.WEST)
 					.where('O', MetaTileEntities.ITEM_EXPORT_BUS[GTValues.LV], EnumFacing.WEST)
+
+					.where('F', MetaTileEntities.FLUID_IMPORT_HATCH[GTValues.LV], EnumFacing.NORTH)
+					.where('D', MetaTileEntities.FLUID_IMPORT_HATCH[GTValues.LV], EnumFacing.SOUTH)
+
+
+					.where('#', Blocks.AIR.getDefaultState())
 					.build());
 		}
-
-		return Lists.newArrayList(shapeInfo);
+		return shapeInfo;
 	}
 
 	@Override
 	public String[] getDescription() {
-		return new String[]{I18n.format("gregtech.multiblock.large_mixer.description")};
+		return new String[]{I18n.format("gregtech.multiblock.volcanus.description")};
 	}
 }

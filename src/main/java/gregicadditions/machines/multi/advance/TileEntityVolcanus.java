@@ -1,8 +1,14 @@
 package gregicadditions.machines.multi.advance;
 
 import gregicadditions.GAMaterials;
+import gregicadditions.blocks.GAMetalCasing;
+import gregicadditions.client.ClientHandler;
+import gregicadditions.item.GAMetaBlocks;
+import gregtech.api.GTValues;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
+import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
@@ -15,9 +21,11 @@ import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.common.metatileentities.multi.electric.MetaTileEntityElectricBlastFurnace;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
@@ -34,6 +42,13 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 
 	public TileEntityVolcanus(ResourceLocation metaTileEntityId) {
 		super(metaTileEntityId);
+		this.recipeMapWorkable = new VolacanusRecipeLogic(this);
+		reinitializeStructurePattern();
+	}
+
+	@Override
+	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
+		return new TileEntityVolcanus(metaTileEntityId);
 	}
 
 	@Override
@@ -51,14 +66,17 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 				.build();
 	}
 
+
+	@Override
 	protected IBlockState getCasingState() {
-		return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF);
+		return GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.HASTELLOY_N);
 	}
 
 	@Override
 	public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-		return Textures.HEAT_PROOF_CASING;
+		return ClientHandler.HASTELLOY_N;
 	}
+
 
 	public class VolacanusRecipeLogic extends MultiblockRecipeLogic {
 
@@ -69,6 +87,9 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 			Recipe recipe = super.findRecipe(maxVoltage, inputs, fluidInputs);
+			if (recipe == null) {
+				return null;
+			}
 			List<CountableIngredient> newRecipeInputs = new ArrayList<>();
 			List<FluidStack> newFluidInputs = new ArrayList<>();
 			List<ItemStack> outputI = new ArrayList<>();
@@ -87,11 +108,15 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 		@Override
 		protected boolean drawEnergy(int recipeEUt) {
 			boolean enoughEnergy = super.drawEnergy(recipeEUt);
-			Optional<IFluidTank> fluidTank = getInputFluidInventory().getFluidTanks().stream().filter(iFluidTank -> Objects.requireNonNull(iFluidTank.getFluid()).isFluidEqual(GAMaterials.PYROTHEUM.getFluid(1))).findFirst();
+			Optional<IFluidTank> fluidTank =
+					getInputFluidInventory().getFluidTanks().stream()
+							.filter(iFluidTank -> iFluidTank.getFluid() != null)
+							.filter(iFluidTank -> iFluidTank.getFluid().isFluidEqual(GAMaterials.PYROTHEUM.getFluid(1)))
+							.findFirst();
 			if (fluidTank.isPresent()) {
 				IFluidTank tank = fluidTank.get();
-				if (tank.getCapacity() > 10 && enoughEnergy) {
-					tank.drain(10, true);
+				if (tank.getCapacity() > 1 && enoughEnergy) {
+					tank.drain(1, true);
 					return true;
 				}
 			}
@@ -120,5 +145,6 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 				outputF.add(fluidCopy);
 			}
 		}
-
 	}
+
+}

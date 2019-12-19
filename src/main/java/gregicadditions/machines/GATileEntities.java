@@ -3,6 +3,7 @@ package gregicadditions.machines;
 import gregicadditions.GAConfig;
 import gregicadditions.GregicAdditions;
 import gregicadditions.client.ClientHandler;
+import gregicadditions.machines.multi.advance.TileEntityVolcanus;
 import gregicadditions.machines.multi.simple.*;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.GregTechAPI;
@@ -75,6 +76,7 @@ public class GATileEntities {
 	public static TileEntityLargeWiremill LARGE_WIREMILL;
 	public static TileEntityLargeChemicalReactor LARGE_CHEMICAL_REACTOR;
 	public static TileEntityLargeExtruder LARGE_EXTRUDER;
+	public static TileEntityVolcanus VOLCANUS;
 
 	public static TileEntityDrum WOODEN_DRUM;
 	public static TileEntityDrum BRONZE_DRUM;
@@ -427,7 +429,8 @@ public class GATileEntities {
 		GregTechAPI.registerMetaTileEntity(2528, new TileEntityLargeWashingPlant(location("large_washing_plant"), RecipeMaps.CHEMICAL_BATH_RECIPES));
 		LARGE_WIREMILL = GregTechAPI.registerMetaTileEntity(2529, new TileEntityLargeWiremill(location("large_wiremill")));
 		LARGE_CHEMICAL_REACTOR = GregTechAPI.registerMetaTileEntity(2530, new TileEntityLargeChemicalReactor(location("large_chemical_reactor")));
-		LARGE_EXTRUDER = GregTechAPI.registerMetaTileEntity(2530, new TileEntityLargeExtruder(location("large_extruder")));
+		LARGE_EXTRUDER = GregTechAPI.registerMetaTileEntity(2531, new TileEntityLargeExtruder(location("large_extruder")));
+		VOLCANUS = GregTechAPI.registerMetaTileEntity(2532, new TileEntityVolcanus(location("volcanus")));
 
 		if (GAConfig.GT6.registerDums) {
 			WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));

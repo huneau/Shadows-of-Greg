@@ -36,7 +36,8 @@ public class GAMetalCasing extends VariantBlock<GAMetalCasing.MetalCasingType> {
 		EGLIN_STEEL("eglin_steel"),
 		GRISIUM("grisium"),
 		MARAGING_STEEL("maraging_steel"),
-		INCONEL("inconel");
+		INCONEL("inconel"),
+		HASTELLOY_N("hastelloy_n");
 
 		private final String name;
 
