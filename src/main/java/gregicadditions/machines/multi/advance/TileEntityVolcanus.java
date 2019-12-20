@@ -79,7 +79,7 @@ public class TileEntityVolcanus extends MetaTileEntityElectricBlastFurnace {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
 		super.addInformation(stack, player, tooltip, advanced);
-		tooltip.add(I18n.format("gregtech.multiblock.large_chemical_reactor.description"));
+		tooltip.add(I18n.format("gregtech.multiblock.volcanus.description"));
 	}
 
 
