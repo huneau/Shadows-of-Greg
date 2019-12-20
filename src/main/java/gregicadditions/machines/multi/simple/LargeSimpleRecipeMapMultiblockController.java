@@ -2,6 +2,7 @@ package gregicadditions.machines.multi.simple;
 
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.Recipe;
@@ -36,7 +37,6 @@ abstract public class LargeSimpleRecipeMapMultiblockController extends RecipeMap
 		super(metaTileEntityId, recipeMap);
 		this.recipeMapWorkable = new LargeSimpleMultiblockRecipeLogic(this, EUtPercentage, durationPercentage, chancePercentage, stack);
 	}
-
 
 	public static class LargeSimpleMultiblockRecipeLogic extends MultiblockRecipeLogic {
 
@@ -88,11 +88,24 @@ abstract public class LargeSimpleRecipeMapMultiblockController extends RecipeMap
 
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
-			Recipe matchingRecipe = recipeMap.findRecipe(maxVoltage, inputs, fluidInputs, 0);
-			if (matchingRecipe == null) {
+			List<IItemHandlerModifiable> itemInputs = ((LargeSimpleRecipeMapMultiblockController) this.getMetaTileEntity()).getAbilities(MultiblockAbility.IMPORT_ITEMS);
+
+			Tuple recipePerInput = itemInputs.stream()
+					.map(iItemHandlerModifiable -> new Tuple(recipeMap.findRecipe(maxVoltage, iItemHandlerModifiable, fluidInputs, 0), iItemHandlerModifiable))
+					.filter(tuple -> tuple.getRecipe() != null)
+					.findFirst().orElse(new Tuple(recipeMap.findRecipe(maxVoltage, inputs, fluidInputs, 0), inputs));
+
+			if (recipePerInput.getRecipe() == null) {
 				return null;
 			}
 
+			return createRecipe(maxVoltage, recipePerInput.getInput(), fluidInputs, recipePerInput.recipe);
+
+
+		}
+
+
+		protected Recipe createRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs, Recipe matchingRecipe) {
 			int maxItemsLimit = this.stack;
 			int EUt = 0;
 			int duration = 0;
@@ -242,6 +255,24 @@ abstract public class LargeSimpleRecipeMapMultiblockController extends RecipeMap
 				FluidStack fluidCopy = f.copy();
 				fluidCopy.amount = fluidNum;
 				outputF.add(fluidCopy);
+			}
+		}
+
+		private class Tuple {
+			private final Recipe recipe;
+			private final IItemHandlerModifiable input;
+
+			public Tuple(Recipe recipe, IItemHandlerModifiable input) {
+				this.recipe = recipe;
+				this.input = input;
+			}
+
+			public Recipe getRecipe() {
+				return recipe;
+			}
+
+			public IItemHandlerModifiable getInput() {
+				return input;
 			}
 		}
 	}
