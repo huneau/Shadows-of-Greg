@@ -86,7 +86,7 @@ public class TileEntityLargeBenderAndForming extends LargeSimpleRecipeMapMultibl
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-		tooltip.add(I18n.format("gregtech.multiblock.large_bender_and_forming"));
+		tooltip.add(I18n.format("gregtech.multiblock.large_bender_and_forming.description"));
 		tooltip.add(I18n.format("gregtech.multiblock.recipe", this.recipeMap.getLocalizedName()));
 	}
 

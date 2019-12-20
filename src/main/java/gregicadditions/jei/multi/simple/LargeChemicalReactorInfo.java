@@ -1,7 +1,6 @@
 package gregicadditions.jei.multi.simple;
 
 import com.google.common.collect.Lists;
-import gregicadditions.blocks.GAMetalCasing;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
@@ -32,7 +31,8 @@ public class LargeChemicalReactorInfo extends MultiblockInfoPage {
 			shapeInfo.add(MultiblockShapeInfo.builder()
 					.aisle("XXX", "XXX", "XXX")
 					.aisle("IXX", "X#X", "XXX")
-					.aisle("OXX", "XSX", "XXX")
+					.aisle("OEX", "XSX", "XXX")
+					.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.HV], EnumFacing.WEST)
 					.where('S', GATileEntities.LARGE_CHEMICAL_REACTOR, EnumFacing.SOUTH)
 					.where('C', MetaBlocks.WIRE_COIL.getState(coilType))
 					.where('X', GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.CHEMICALLY_INERT))
@@ -47,6 +47,6 @@ public class LargeChemicalReactorInfo extends MultiblockInfoPage {
 
 	@Override
 	public String[] getDescription() {
-		return new String[]{I18n.format("gregtech.multiblock.large_electrolyzer.description")};
+		return new String[]{I18n.format("gregtech.multiblock.large_chemical_reactor.description")};
 	}
 }

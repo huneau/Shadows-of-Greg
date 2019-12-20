@@ -34,6 +34,7 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
 				new MultiblockInfoRecipeWrapper(new LargeCuttingInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeMixerInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeMultiUseInfo()),
+				new MultiblockInfoRecipeWrapper(new LargeMaceratorInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeSifterInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeWashingPlantInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeWiremillInfo()),

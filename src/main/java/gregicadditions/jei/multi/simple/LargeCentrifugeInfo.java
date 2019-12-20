@@ -31,7 +31,8 @@ public class LargeCentrifugeInfo extends MultiblockInfoPage {
 			shapeInfo.add(MultiblockShapeInfo.builder()
 					.aisle("XXX", "XXX", "XXX")
 					.aisle("IXX", "X#X", "XXX")
-					.aisle("OXX", "XSX", "XXX")
+					.aisle("OEX", "XSX", "XXX")
+					.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.HV], EnumFacing.WEST)
 					.where('S', GATileEntities.LARGE_CENTRIFUGE, EnumFacing.SOUTH)
 					.where('C', MetaBlocks.WIRE_COIL.getState(coilType))
 					.where('X', GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.TUMBAGA))
@@ -46,6 +47,6 @@ public class LargeCentrifugeInfo extends MultiblockInfoPage {
 
 	@Override
 	public String[] getDescription() {
-		return new String[]{I18n.format("gregtech.multiblock.large_electrolyzer.description")};
+		return new String[]{I18n.format("gregtech.multiblock.large_centrifuge.description")};
 	}
 }

@@ -29,7 +29,7 @@ public class TileEntityLargeCutting extends LargeSimpleRecipeMapMultiblockContro
 
 
 	public TileEntityLargeCutting(ResourceLocation metaTileEntityId) {
-		super(metaTileEntityId, RecipeMaps.CENTRIFUGE_RECIPES, 75, 300, 100, 4);
+		super(metaTileEntityId, RecipeMaps.CUTTER_RECIPES, 75, 300, 100, 4);
 	}
 
 	@Override

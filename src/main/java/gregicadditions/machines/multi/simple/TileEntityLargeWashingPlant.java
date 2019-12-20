@@ -86,7 +86,7 @@ public class TileEntityLargeWashingPlant extends LargeSimpleRecipeMapMultiblockC
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-		tooltip.add(I18n.format("gregtech.multiblock.large_washin_plant.description"));
+		tooltip.add(I18n.format("gregtech.multiblock.large_washing_plant.description"));
 	}
 
 	@Override

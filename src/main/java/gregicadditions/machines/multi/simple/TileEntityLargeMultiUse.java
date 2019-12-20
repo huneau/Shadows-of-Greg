@@ -14,9 +14,6 @@ import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.ICubeRenderer;
-import gregtech.api.render.Textures;
-import gregtech.common.blocks.BlockMetalCasing;
-import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.multi.electric.MetaTileEntityElectricBlastFurnace;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
@@ -94,7 +91,7 @@ public class TileEntityLargeMultiUse extends LargeSimpleRecipeMapMultiblockContr
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-		tooltip.add(I18n.format("gregtech.multiblock.large_multi_use"));
+		tooltip.add(I18n.format("gregtech.multiblock.large_multi_use.description"));
 		tooltip.add(I18n.format("gregtech.multiblock.recipe", this.recipeMap.getLocalizedName()));
 	}
 

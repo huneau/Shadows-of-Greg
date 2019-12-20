@@ -33,7 +33,8 @@ public class LargeWiremillInfo extends MultiblockInfoPage {
 					.aisle("XXX", "XXX", "XXX")
 					.aisle("XXX", "XXX", "XXX")
 					.aisle("XXX", "XXX", "XXX")
-					.aisle("XXX", "XSX", "XXX")
+					.aisle("IOE", "XSX", "XXX")
+					.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.HV], EnumFacing.WEST)
 					.where('S', GATileEntities.LARGE_WIREMILL, EnumFacing.SOUTH)
 					.where('C', MetaBlocks.WIRE_COIL.getState(coilType))
 					.where('X', GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.MARAGING_STEEL))
@@ -48,6 +49,6 @@ public class LargeWiremillInfo extends MultiblockInfoPage {
 
 	@Override
 	public String[] getDescription() {
-		return new String[]{I18n.format("gregtech.multiblock.large_washing_plant.description")};
+		return new String[]{I18n.format("gregtech.multiblock.large_wiremill.description")};
 	}
 }

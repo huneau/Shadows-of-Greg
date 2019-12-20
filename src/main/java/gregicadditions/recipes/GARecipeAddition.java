@@ -28,9 +28,9 @@ import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.UnificationEntry;
-import gregtech.api.util.GTLog;
 import gregtech.api.util.GTUtility;
 import gregtech.common.blocks.BlockMachineCasing;
+import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockMultiblockCasing.MultiblockCasingType;
 import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
@@ -43,7 +43,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -567,6 +566,8 @@ public class GARecipeAddition {
 				.input(OrePrefix.dust, Materials.Phosphorus, 2)
 				.input(OrePrefix.dust, Materials.Molybdenum, 1)
 				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.TALONITE, 10)).buildAndRegister();
+
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.STEEL_SOLID)).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(216)).outputs( GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.CHEMICALLY_INERT, 1)).duration(100).EUt(8000).buildAndRegister();
 
 		ModHandler.addShapedRecipe("red_steel_casing", GAMetaBlocks.METAL_CASING.getItemVariant(RED_STEEL_CASING, 3), "PhP", "PFP", "PwP", 'P', new UnificationEntry(OrePrefix.plate, Materials.RedSteel), 'F', new UnificationEntry(OrePrefix.frameGt, Materials.RedSteel));
 		ModHandler.addShapedRecipe("eglin_steel_casing", GAMetaBlocks.METAL_CASING.getItemVariant(EGLIN_STEEL, 3), "PhP", "PFP", "PwP", 'P', new UnificationEntry(OrePrefix.plate, GAMaterials.EGLIN_STEEL), 'F', new UnificationEntry(OrePrefix.frameGt, GAMaterials.EGLIN_STEEL));

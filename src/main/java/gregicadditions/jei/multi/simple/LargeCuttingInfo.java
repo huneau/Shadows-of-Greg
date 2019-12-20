@@ -33,7 +33,8 @@ public class LargeCuttingInfo extends MultiblockInfoPage {
 					.aisle("XXX", "X#X", "XXX")
 					.aisle("XXX", "X#X", "XXX")
 					.aisle("IXX", "X#X", "XXX")
-					.aisle("OXX", "XSX", "XXX")
+					.aisle("OEX", "XSX", "XXX")
+					.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.HV], EnumFacing.WEST)
 					.where('S', GATileEntities.LARGE_CUTTING, EnumFacing.SOUTH)
 					.where('C', MetaBlocks.WIRE_COIL.getState(coilType))
 					.where('X', GAMetaBlocks.METAL_CASING.getState(GAMetalCasing.MetalCasingType.STELLITE_TALONITE))
@@ -48,6 +49,6 @@ public class LargeCuttingInfo extends MultiblockInfoPage {
 
 	@Override
 	public String[] getDescription() {
-		return new String[]{I18n.format("gregtech.multiblock.large_electrolyzer.description")};
+		return new String[]{I18n.format("gregtech.multiblock.large_cutting.description")};
 	}
 }
