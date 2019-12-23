@@ -43,6 +43,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -566,6 +567,16 @@ public class GARecipeAddition {
 				.input(OrePrefix.dust, Materials.Phosphorus, 2)
 				.input(OrePrefix.dust, Materials.Molybdenum, 1)
 				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.TALONITE, 10)).buildAndRegister();
+		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(100).EUt(120)
+				.input(OrePrefix.dust, Materials.Redstone)
+				.input(OrePrefix.dust, Materials.Sulfur)
+				.input(OrePrefix.dust, Materials.Blaze)
+				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.PYROTHEUM,2)).buildAndRegister();
+
+		RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2)
+				.input(OrePrefix.dust, GAMaterials.PYROTHEUM)
+				.fluidOutputs(GAMaterials.PYROTHEUM.getFluid(250)).buildAndRegister();
+
 
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.STEEL_SOLID)).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(216)).outputs( GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.CHEMICALLY_INERT, 1)).duration(100).EUt(8000).buildAndRegister();
 

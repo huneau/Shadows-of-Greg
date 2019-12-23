@@ -22,7 +22,7 @@ public class GAMaterials implements IMaterialHandler {
 	public static final FluidMaterial POSITIVE_MATTER = new FluidMaterial(882, "positive_matter", 11279131, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
 	public static final IngotMaterial NEUTRONIUM = new IngotMaterial(972, "neutronium", 12829635, MaterialIconSet.METALLIC, 6, ImmutableList.of(), EXT2_METAL | IngotMaterial.MatFlags.GENERATE_RING | IngotMaterial.MatFlags.GENERATE_ROTOR | IngotMaterial.MatFlags.GENERATE_SMALL_GEAR | SolidMaterial.MatFlags.GENERATE_LONG_ROD | MatFlags.GENERATE_FRAME, Element.valueOf("Nt"), 24.0F, 12F, 655360);
 	public static final GemMaterial LIGNITE_COKE = new GemMaterial(879, "lignite_coke", 0x8b6464, MaterialIconSet.LIGNITE, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
-	public static final DustMaterial PYROTHEUM = new DustMaterial(973, "pyrotheum", 0xFF9A3C, MaterialIconSet.SAND, 1, ImmutableList.of(),  Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
+	public static final DustMaterial PYROTHEUM = new DustMaterial(973, "pyrotheum", 0xFF9A3C, MaterialIconSet.SAND, 1, ImmutableList.of(),  Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES | DustMaterial.MatFlags.SMELT_INTO_FLUID);
 	public static final DustMaterial EGLIN_STEEL_BASE = new DustMaterial(976, "eglin_steel_base", 0x8B4513, MaterialIconSet.SAND, 6, ImmutableList.of(new MaterialStack(Materials.Iron, 4), new MaterialStack(Materials.Kanthal, 1), new MaterialStack(Materials.Invar, 5)), 0);
 	public static final IngotMaterial EGLIN_STEEL = new IngotMaterial(977, "eglin_steel", 0x8B4513, MaterialIconSet.METALLIC, 6, ImmutableList.of(new MaterialStack(GAMaterials.EGLIN_STEEL_BASE, 10), new MaterialStack(Materials.Sulfur, 1), new MaterialStack(Materials.Silicon, 1), new MaterialStack(Materials.Carbon, 1)), EXT2_METAL | MatFlags.GENERATE_FRAME, null, 1048);
 	public static final IngotMaterial GRISIUM = new IngotMaterial(978, "grisium", 0x355D6A, MaterialIconSet.METALLIC, 6, ImmutableList.of(new MaterialStack(Materials.Titanium, 9), new MaterialStack(Materials.Carbon, 9), new MaterialStack(Materials.Potassium, 9), new MaterialStack(Materials.Lithium, 9), new MaterialStack(Materials.Sulfur, 9), new MaterialStack(Materials.Hydrogen, 5)), EXT2_METAL | MatFlags.GENERATE_FRAME, null, 3850);
@@ -74,6 +74,7 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemFlawed.setIgnored(LIGNITE_COKE);
 		OrePrefix.gemFlawless.setIgnored(LIGNITE_COKE);
 		OrePrefix.gemExquisite.setIgnored(LIGNITE_COKE);
+		OrePrefix.block.setIgnored(PYROTHEUM);
 
 		Materials.Magnetite.setDirectSmelting(Materials.Iron);
 	}
