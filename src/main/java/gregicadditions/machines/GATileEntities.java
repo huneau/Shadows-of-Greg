@@ -77,6 +77,7 @@ public class GATileEntities {
 	public static TileEntityLargeChemicalReactor LARGE_CHEMICAL_REACTOR;
 	public static TileEntityLargeExtruder LARGE_EXTRUDER;
 	public static TileEntityVolcanus VOLCANUS;
+	public static TileEntityLargeAssembler LARGE_ASSEMBLER;
 
 	public static TileEntityDrum WOODEN_DRUM;
 	public static TileEntityDrum BRONZE_DRUM;
@@ -431,6 +432,7 @@ public class GATileEntities {
 		LARGE_CHEMICAL_REACTOR = GregTechAPI.registerMetaTileEntity(2530, new TileEntityLargeChemicalReactor(location("large_chemical_reactor")));
 		LARGE_EXTRUDER = GregTechAPI.registerMetaTileEntity(2531, new TileEntityLargeExtruder(location("large_extruder")));
 		VOLCANUS = GregTechAPI.registerMetaTileEntity(2532, new TileEntityVolcanus(location("volcanus")));
+		LARGE_ASSEMBLER = GregTechAPI.registerMetaTileEntity(2533, new TileEntityLargeAssembler(location("large_assembler")));
 
 		if (GAConfig.GT6.registerDums) {
 			WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));

@@ -2,6 +2,7 @@ package gregicadditions.recipes;
 
 import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
+import gregicadditions.blocks.GAMetalCasing;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
@@ -210,6 +211,7 @@ public class MachineCraftingRecipes {
 		ModHandler.addShapedRecipe("ga_large_washing_plant", GATileEntities.LARGE_WASHING_PLANT.getStackForm(), "DBD", "CHC", "DED", 'H', MetaTileEntities.ORE_WASHER[3].getStackForm(), 'B', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Good), 'E', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Good), 'C', new UnificationEntry(OrePrefix.plate, GAMaterials.TALONITE), 'D', new UnificationEntry(OrePrefix.plate, GAMaterials.GRISIUM));
 		ModHandler.addShapedRecipe("ga_large_wiremill", GATileEntities.LARGE_WIREMILL.getStackForm(), "DED", "CHC", "DED", 'H', MetaTileEntities.WIREMILL[3].getStackForm(), 'E', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Extreme), 'D', new UnificationEntry(OrePrefix.plate, GAMaterials.MARAGING_STEEL_250));
 		ModHandler.addShapedRecipe("ga_volcanus", GATileEntities.VOLCANUS.getStackForm(), "GCG", "IHI", "PCP", 'H', MetaTileEntities.ELECTRIC_BLAST_FURNACE.getStackForm(),  'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite), 'P', new UnificationEntry(OrePrefix.plate, GAMaterials.HASTELLOY_N),'G', new UnificationEntry(OrePrefix.gear, GAMaterials.HASTELLOY_N), 'I' , MetaItems.ROBOT_ARM_IV);
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().fluidInputs(GAMaterials.HASTELLOY_N.getFluid(144 * 4)).inputs(GAMetaBlocks.METAL_CASING.getItemVariant(GAMetalCasing.MetalCasingType.STABALLOY, 2), MetaItems.EMITTER_LUV.getStackForm(2), MetaItems.SENSOR_LUV.getStackForm(2)).inputs(CountableIngredient.from(OrePrefix.circuit, Tier.Elite)).outputs(GATileEntities.LARGE_ASSEMBLER.getStackForm()).duration(600).EUt(8000).buildAndRegister();
 
 
 		List<Recipe> removals = new ArrayList<>();

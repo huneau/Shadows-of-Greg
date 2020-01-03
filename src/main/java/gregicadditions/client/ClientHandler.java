@@ -20,6 +20,7 @@ public class ClientHandler {
 	public static SimpleCubeRenderer CHEMICALLY_INERT = new SimpleCubeRenderer("casings/solid/machine_casing_chemically_inert");
 	public static SimpleCubeRenderer RED_STEEL_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_red_steel");
 	public static SimpleCubeRenderer TUMBAGA = new SimpleCubeRenderer("casings/solid/machine_casing_tumbaga");
+	public static SimpleCubeRenderer LARGE_ASSEMBLER = new SimpleCubeRenderer("casings/solid/machine_casing_large_assembler");
 	public static SimpleCubeRenderer POTIN = new SimpleCubeRenderer("casings/solid/machine_casing_potin");
 	public static SimpleCubeRenderer STELLITE_TALONITE = new SimpleCubeRenderer("casings/solid/machine_casing_stellite_talonite");
 	public static SimpleCubeRenderer STABALLOY = new SimpleCubeRenderer("casings/solid/machine_casing_staballoy");

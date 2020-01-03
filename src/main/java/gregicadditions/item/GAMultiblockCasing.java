@@ -30,7 +30,8 @@ public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingTy
 
 		COKE_OVEN_BRICKS("coke_oven_bricks"),
 		TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing"),
-		CHEMICALLY_INERT("chemically_inert_casing");
+		CHEMICALLY_INERT("chemically_inert_casing"),
+		LARGE_ASSEMBLER("large_assembler_casing");
 
 		private final String name;
 

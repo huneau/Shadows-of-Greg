@@ -5,6 +5,7 @@ import forestry.core.fluids.Fluids;
 import forestry.core.items.EnumElectronTube;
 import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
+import gregicadditions.blocks.GAMetalCasing;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
@@ -43,7 +44,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -577,7 +577,7 @@ public class GARecipeAddition {
 				.input(OrePrefix.dust, GAMaterials.PYROTHEUM)
 				.fluidOutputs(GAMaterials.PYROTHEUM.getFluid(250)).buildAndRegister();
 
-
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().fluidInputs(GAMaterials.HASTELLOY_N.getFluid(144 * 4)).inputs(GAMetaBlocks.METAL_CASING.getItemVariant(GAMetalCasing.MetalCasingType.STABALLOY, 2)).inputs(CountableIngredient.from(OrePrefix.circuit, Tier.Extreme)).outputs(GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.LARGE_ASSEMBLER, 2)).duration(600).EUt(8000).buildAndRegister();
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.STEEL_SOLID)).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(216)).outputs( GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.CHEMICALLY_INERT, 1)).duration(100).EUt(8000).buildAndRegister();
 
 		ModHandler.addShapedRecipe("red_steel_casing", GAMetaBlocks.METAL_CASING.getItemVariant(RED_STEEL_CASING, 3), "PhP", "PFP", "PwP", 'P', new UnificationEntry(OrePrefix.plate, Materials.RedSteel), 'F', new UnificationEntry(OrePrefix.frameGt, Materials.RedSteel));

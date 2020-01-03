@@ -41,6 +41,7 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
 				new MultiblockInfoRecipeWrapper(new LargeChemicalReactorInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeExtruderInfo()),
 				new MultiblockInfoRecipeWrapper(new VolcanusInfo()),
+				new MultiblockInfoRecipeWrapper(new LargeAssemblerInfo()),
 				new MultiblockInfoRecipeWrapper(new LargeBenderAndFormingInfo())
 		), "gtadditions:multiblock_info");
 	}
